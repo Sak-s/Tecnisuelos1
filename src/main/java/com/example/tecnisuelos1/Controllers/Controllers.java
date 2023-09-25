@@ -68,4 +68,8 @@ public class Controllers {
     public String cronogramaa(Model model) {
         return "cronograma";
     }
+    @GetMapping("/laboratorista")
+    public String VistaLabo(Model model) {
+        return "laboratorista";
+    }
 }
