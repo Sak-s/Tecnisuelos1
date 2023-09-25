@@ -7,6 +7,14 @@ package com.example.tecnisuelos1.Controllers;
 
 import com.example.tecnisuelos1.entity.Contador;
 import com.example.tecnisuelos1.services.ContadorService;
+import com.example.tecnisuelos1.services.excelReports.ContadorExcel;
+
+import jakarta.servlet.http.HttpServletResponse;
+
+import java.io.IOException;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -75,6 +83,19 @@ public class ContadorController {
         contadorInterface.borrarCliente(id);
         return "redirect:/crudContador";
     }
+
+       @GetMapping("/contador/export/excel")
+     public void exportToExcel(HttpServletResponse response) throws IOException {
+            response.setContentType("application/octet-stream");
+            DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+            String currentDateTime = dateFormatter.format(new Date(0));
+            String headerKey = "Content-Disposition";
+            String headerValue = "attachment; filename=pruebaCampo_"+ currentDateTime +".xlsx";
+            response.setHeader(headerKey, headerValue);
+            List<Contador> contadorList = contadorInterface.getCliente();
+            ContadorExcel excelExporter = new ContadorExcel(contadorList);
+            excelExporter.export(response);
+     }
     
     
     /*@GetMapping("/actualizar")

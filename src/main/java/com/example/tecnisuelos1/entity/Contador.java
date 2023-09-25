@@ -11,7 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.io.Serializable;
-import java.util.Date;
+
 
 /**
  *
@@ -28,7 +28,7 @@ public class Contador implements Serializable {
     private long clienteId;
     
     @Column(nullable = false)
-    private Date fecha;
+    private String fecha;
 
     @Column(length = 200, nullable = false)
     private String celNumero;
@@ -46,7 +46,7 @@ public class Contador implements Serializable {
     private String emailCliente;
 
     //Constructor
-    public Contador(Long clienteId, Date fecha, String celNumero, String direccionCliente, String nombreCliente, String apellidoCliente, String emailCliente){
+    public Contador(Long clienteId, String fecha, String celNumero, String direccionCliente, String nombreCliente, String apellidoCliente, String emailCliente){
 
         this.clienteId = clienteId;
         this.fecha = fecha;
@@ -74,11 +74,11 @@ public class Contador implements Serializable {
         this.clienteId = clienteId;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 

@@ -43,7 +43,7 @@ public class InvetarioController {
      @PostMapping("/guardarInventario")
     public String GuardarInventario(@ModelAttribute Inventario invent, BindingResult resultado) {
         inventarioInterface.crearInven(invent);
-        return "redirect:/agregarInventario";
+        return "redirect:/crudInventario";
     }
 
 
