@@ -90,7 +90,7 @@ public class ContadorController {
             DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
             String currentDateTime = dateFormatter.format(new Date(0));
             String headerKey = "Content-Disposition";
-            String headerValue = "attachment; filename=pruebaCampo_"+ currentDateTime +".xlsx";
+            String headerValue = "attachment; filename=CarteraCliente_"+ currentDateTime +".xlsx";
             response.setHeader(headerKey, headerValue);
             List<Contador> contadorList = contadorInterface.getCliente();
             ContadorExcel excelExporter = new ContadorExcel(contadorList);

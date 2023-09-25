@@ -35,12 +35,12 @@ public class ContadorExcel {
         style.setFont(font);
 
         createCell(row, 0, "Id Cliente", style);
-        createCell(row, 2, "Fecha", style);
-        createCell(row, 3, "Numero Celular", style);
-        createCell(row, 4, "Direccion Cliente", style);
-        createCell(row, 5, "Nombre Cliente", style);
-        createCell(row, 6, "Apellido Cliente", style);
-        createCell(row, 7, "Email Cliente", style);
+        createCell(row, 1, "Fecha", style);
+        createCell(row, 2, "Numero Celular", style);
+        createCell(row, 3, "Direccion Cliente", style);
+        createCell(row, 4, "Nombre Cliente", style);
+        createCell(row, 5, "Apellido Cliente", style);
+        createCell(row, 6, "Email Cliente", style);
 
     }
 
@@ -68,7 +68,7 @@ public class ContadorExcel {
             int columnCount = 0;
             createCell(row, columnCount++, contador.getClienteId(), style);
             createCell(row, columnCount++, contador.getFecha(), style);
-            createCell(row, columnCount++, contador.getCelNumero().toString(), style);
+            createCell(row, columnCount++, contador.getCelNumero(), style);
             createCell(row, columnCount++, contador.getDireccionCliente(), style);
             createCell(row, columnCount++, contador.getNombreCliente(), style);
             createCell(row, columnCount++, contador.getApellidoCliente(), style);

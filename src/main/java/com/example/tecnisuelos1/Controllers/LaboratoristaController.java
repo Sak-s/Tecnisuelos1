@@ -68,7 +68,7 @@ public class LaboratoristaController {
             DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
             String currentDateTime = dateFormatter.format(new Date(0));
             String headerKey = "Content-Disposition";
-            String headerValue = "attachment; filename=pruebaCampo_"+ currentDateTime +".xlsx";
+            String headerValue = "attachment; filename=InformeLaboratorio_"+ currentDateTime +".xlsx";
             response.setHeader(headerKey, headerValue);
             List<Laboratorista> laboratoristaInfoList = laboInterface.getLabo();
             LaboratoristaExcel excelExporter = new LaboratoristaExcel(laboratoristaInfoList);

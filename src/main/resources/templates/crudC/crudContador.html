@@ -49,49 +49,50 @@
                 <div class="colum-title">
                     <h1>Cartera Cliente</h1>
                 </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <a th:href="@{/Contador/export/excel}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                    fill="currentColor" class="bi bi-file-earmark-arrow-down" viewBox="0 0 16 16">
-                    <path
-                      d="M8.5 6.5a.5.5 0 0 0-1 0v3.793L6.354 9.146a.5.5 0 1 0-.708.708l2 2a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0-.708-.708L8.5 10.293V6.5z" />
-                    <path
-                      d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z" />
-                  </svg></a>
-              </div>
-            </div>
+
+                <div class="row">
+                    <div class="col">
+                        <a th:href="@{/contador/export/excel}"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" fill="currentColor" class="bi bi-file-earmark-arrow-down"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M8.5 6.5a.5.5 0 0 0-1 0v3.793L6.354 9.146a.5.5 0 1 0-.708.708l2 2a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0-.708-.708L8.5 10.293V6.5z" />
+                                <path
+                                    d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z" />
+                            </svg></a>
+                    </div>
+                </div>
                 <div class="colum-info">
                     <div class="id">
-                      <h6>Id</h6>
+                        <h6>Id</h6>
                     </div>
                     <div class="date">
-                      <h6>Fecha</h6>
+                        <h6>Fecha</h6>
                     </div>
                     <div class="number">
-                      <h6>Numero</h6>
+                        <h6>Numero</h6>
                     </div>
                     <div class="direccion">
-                      <h6>Direccion</h6>
+                        <h6>Direccion</h6>
                     </div>
                     <div class="name">
-                      <h6>Nombre</h6>
+                        <h6>Nombre</h6>
                     </div>
                     <div class="last-name">
-                      <h6>Apellido</h6>
+                        <h6>Apellido</h6>
                     </div>
                     <div class="email">
-                      <h6>Correo</h6>
+                        <h6>Correo</h6>
                     </div>
                     <div class="editar">
-                      <h6>Editar</h6>
+                        <h6>Editar</h6>
                     </div>
                     <div class="eliminar">
-                      <h6>Eliminar</h6>
+                        <h6>Eliminar</h6>
                     </div>
-                  </div>
+                </div>
 
-                  <th:block th:each="listas: ${monalisa}">
+                <th:block th:each="listas: ${monalisa}">
                     <div class="colum-info-2">
                         <div class="id-2">
                             <span th:text="${listas.clienteId}"></span>
@@ -116,11 +117,11 @@
                         </div>
                         <div class="editar-2">
                             <a class="nav-link btn btn-secondary" aria-current="page"
-                            th:href="@{/verEditar/{id}(id=${listas.clienteId})}">Editar</a>
+                                th:href="@{/verEditar/{id}(id=${listas.clienteId})}">Editar</a>
                         </div>
                         <div class="eliminar-2">
                             <a class="nav-link btn btn-secondary" aria-current="page"
-                            th:href="@{/eliminarCliente/{id}(id=${listas.clienteId})}">Eliminar</a>
+                                th:href="@{/eliminarCliente/{id}(id=${listas.clienteId})}">Eliminar</a>
                         </div>
                     </div>
                 </th:block>
