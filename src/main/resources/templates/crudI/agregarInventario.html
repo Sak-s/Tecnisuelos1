@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css}"
+        rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+        crossorigin="anonymous">
+    <script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js}"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <title>Inventario</title>
+    <link rel="stylesheet" th:href="@{/css/stylesformInventario.css}">
+
+</head>
+
+<body class="background">
+    <header class="hv-background background wrapper">
+        <nav class="navbar navbar-expand-lg navbar-light ">
+            <div class="container container-fluid">
+                <a class="navbar-brand" th:href="@{/}"><img id="logoTec"
+                        th:src="@{/Imagenes/20230309_161828.png}" alt="Logo"
+                        width="200" height="60" class=""></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                    <ul class="navbar-nav  g-col-6">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle btn btn-secondary" th:href="@{/}" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Administrador
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" th:href="@{/dashboard}">Atras</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+        <form th:action="@{/guardarInventario}" th:object="${invent}" method="post">
+            <section class="container-login"></section>
+                
+                    <div class="img"></div>
+                        <div class="container">
+                        <h1 class="container title">Inventario</h1>
+                    <div class="row">
+
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Nombre" required name="nombreInven">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Cantidad" required name="cantidadInven">
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Categoria" required name="categoriaInven">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Imagen" required name="imagenInven">
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Descripcion" required
+                                name="descripcionInven">
+                        </div>
+
+                    </div>
+                    <hr>
+
+                    <div>
+                        <input type="submit" class="btn btn-third" value="Crear"/>
+                    </div>
+
+                
+            </section>
+        </form>
+
+        <div id="info">
+            <input type="checkbox" id="menu" name="menu" class="menu-checkbox">
+            <div class="menu">
+                <label class="menu-toggle" for="menu"><span>Toggle</span></label>
+                <ul>
+                    <li>
+                        <a th:href="@{/crudInventario}" class="btn btn-secondarys"> Crud inventario</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<footer class="footer">
+    <div class="justify-content-center">
+        <div class="col-auto footer-login ">
+            <p>© 2023. By Tatiana, Jhonatan, Mateo, Santiago</p>
+        </div>
+    </div>
+</footer>
+
+</html>
