@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -34,11 +35,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class LaboratoristaController {
     @Autowired
     private LaboratoristaService laboInterface;
+    private String palabraClave;
 
     @GetMapping("/crudLaboratorista")
-    public String vistaCrudLaboratorista(Model model) {
-        List<Laboratorista> listaInformes = laboInterface.getLabo();
+    public String vistaCrudLaboratorista(@Param("palabraClave") String palabraClave, Model model) {
+        this.palabraClave = palabraClave;
+        List<Laboratorista> listaInformes = laboInterface.getLabo(palabraClave);
         model.addAttribute("lista", listaInformes);
+        model.addAttribute("palabraClave", palabraClave);
         return "crudL/crudLaboratorista";
     }
 
@@ -70,7 +74,7 @@ public class LaboratoristaController {
             String headerKey = "Content-Disposition";
             String headerValue = "attachment; filename=InformeLaboratorio_"+ currentDateTime +".xlsx";
             response.setHeader(headerKey, headerValue);
-            List<Laboratorista> laboratoristaInfoList = laboInterface.getLabo();
+            List<Laboratorista> laboratoristaInfoList = laboInterface.getLabo(palabraClave);
             LaboratoristaExcel excelExporter = new LaboratoristaExcel(laboratoristaInfoList);
             excelExporter.export(response);
      }

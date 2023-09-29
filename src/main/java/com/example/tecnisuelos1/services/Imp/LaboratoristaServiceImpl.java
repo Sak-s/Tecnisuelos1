@@ -22,10 +22,11 @@ public class LaboratoristaServiceImpl implements LaboratoristaService {
     private LaboratoristaRepository labotory;
 
     @Override
-
-    public List<Laboratorista> getLabo() {
-        List<Laboratorista> lista = labotory.findAll();
-        return lista;
+    public List<Laboratorista> getLabo(String palabraClave) {
+        if (palabraClave !=null) {
+            return labotory.findAll(palabraClave);
+        }
+        return labotory.findAll();
     }
 
     @Override

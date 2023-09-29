@@ -13,7 +13,7 @@ import java.util.List;
  */
 public interface LaboratoristaService {
 
-    public List<Laboratorista> getLabo();
+    public List<Laboratorista> getLabo(String palabraClave);
 
     public Laboratorista crearInforme(Laboratorista labo);
 

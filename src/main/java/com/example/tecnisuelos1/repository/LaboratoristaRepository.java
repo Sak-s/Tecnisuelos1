@@ -4,15 +4,18 @@
  */
 package com.example.tecnisuelos1.repository;
 
+import java.util.List;
 import com.example.tecnisuelos1.entity.Laboratorista;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-/**
- *
- * @author santiago
- */
+
 @Repository
 public interface LaboratoristaRepository extends JpaRepository<Laboratorista, Long> {
+    @Query
+    ("SELECT l FROM Laboratorista l WHERE CONCAT(l.nombreEmpleado, ' ', l.fecha, ' ', l.numerocilindro, ' ', l.numeroPrueba, ' ', l.cliente, ' ', l.granulometria) LIKE %?1%")
+    public List<Laboratorista> findAll(String palabraClave);
+
     
 }

@@ -11,7 +11,7 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
     <title>Crud Laboratorista</title>
-    <link rel="stylesheet" th:href="@{/css/stylesCrudLaboratorista.css}">
+    <link rel="stylesheet" th:href="@{/css/stylesCrudIngeniero.css}">
     <script src="https://kit.fontawesome.com/f48a57573d.js" crossorigin="anonymous"></script>
 </head>
 
@@ -42,78 +42,74 @@
             </div>
         </nav>
     </header>
-    <form th:action="@{/index}" method="post">
-        <section class="container-login">
-            <div class="img"></div>
-            <div class="container">
-                <div class="colum-title">
-                    <h1>Informes de Laboratorio</h1>
+    <section class="container-login">
+        <div class="img"></div>
+        <div class="container">
+            <div class="colum-title">
+                <h1>Informes de Laboratorio</h1>
             </div>
-            <div class="row">
-              <div class="col">
-                <a th:href="@{/laboratorista/export/excel}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                    fill="currentColor" class="bi bi-file-earmark-arrow-down" viewBox="0 0 16 16">
-                    <path
-                      d="M8.5 6.5a.5.5 0 0 0-1 0v3.793L6.354 9.146a.5.5 0 1 0-.708.708l2 2a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0-.708-.708L8.5 10.293V6.5z" />
-                    <path
-                      d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z" />
-                  </svg></a>
-              </div>
-             </div>
-                <div class="colum-info">
-                    <div class="id">
-                        <h6>ID</h6>
-                    </div>
-                    <div class="date">
-                        <h6>Fecha</h6>
-                    </div>
-                    <div class="nombre_e">
-                        <h6>Nombre E</h6>
-                    </div>
-                    <div class="numero_p">
-                        <h6>N° Prueba</h6>
-                    </div>
-                    <div class="cliente">
-                        <h6>Cliente</h6>
-                    </div>
-                    <div class="editar">
-                        <h6>Editar</h6>
-                    </div>
-                    <div class="eliminar">
-                        <h6>Eliminar</h6>
-                    </div>
+            <form class="form-inline" th:action="@{/crudLaboratorista}">
+                <div class="form-group mb-2">
+                    <label><strong>Filtrar:</strong>
+                        <div class="form-group mx-sm-3 mb-2">
+                            <input type="text" name="palabraClave" class="form-control" id="palabraClave"
+                                th:value="${palabraClave}" placeholder="¿Que deseas filtrar?">
+                        </div>
+                    </label>
                 </div>
-
-                <th:block th:each="info : ${lista}">
-                    <div class="colum-info-2">
-                        <div class="id-2">
-                            <p th:text="${info.laboratoristaId}"></p>
-                        </div>
-                        <div class="date-2">
-                            <p th:text="${info.fecha}"></p>
-                        </div>
-                        <div class="nombre_e2">
-                            <p th:text="${info.nombreEmpleado}"></p>
-                        </div>
-                        <div class="numero-p2">
-                            <p th:text="${info.numeroPrueba}"></p>
-                        </div>
-                        <div class="cliente-2">
-                            <p th:text="${info.cliente}"></p>
-                        </div>
-                        <div class="editar-2">
-                            <a class="nav-link btn btn-secondary" aria-current="page"
-                                th:data-id="${info.laboratoristaId}">Editar</a>
-                        </div>
-                        <div class="eliminar-2">
-                            <a class="nav-link btn btn-secondary" aria-current="page"
-                            th:href="@{/eliminarInforme/{id}(id=${info.laboratoristaId})}">Eliminar</a>
-                        </div>
-                    </div>
-                </th:block>
+                <input type="submit" class="btn btn-secondary mb-2" value="Buscar">
+                <input type="button" class="btn btn-secondary mb-2" value="Eliminar" onclick="limpiarCampo()">
+            </form>
+            <div class="row">
+                <div class="col">
+                    <a th:href="@{/laboratorista/export/excel}"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                            height="16" fill="currentColor" class="bi bi-file-earmark-arrow-down" viewBox="0 0 16 16">
+                            <path
+                                d="M8.5 6.5a.5.5 0 0 0-1 0v3.793L6.354 9.146a.5.5 0 1 0-.708.708l2 2a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0-.708-.708L8.5 10.293V6.5z" />
+                            <path
+                                d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z" />
+                        </svg></a>
+                </div>
             </div>
-        </section>
-    </form>
+            <table class="table table-hover">
+                <tr>
+                    <th style="display:none;">ID</th>
+                    <th>Fecha</th>
+                    <th>Nombre Empleado</th>
+                    <th>N° Prueba</th>
+                    <th>Cliente</th>
+                    <th colspan="1"></th>
+                </tr>
+                <th:block th:each="info : ${lista}">
+                    <tr>
+                        <td style="display:none;" th:text="${info.laboratoristaId}"></td>
+                        <td th:text="${info.fecha}"></td>
+                        <td th:text="${info.nombreEmpleado}"></td>
+                        <td th:text="${info.numeroPrueba}"></td>
+                        <td th:text="${info.cliente}"></td>
+                        <td>
+                            <a class="nav-link btn btn-secondary" aria-current="page"
+                                th:href="@{/eliminarInforme/{id}(id=${info.laboratoristaId})}"
+                                onclick="return confirm('¿Estás seguro de que deseas eliminar la prueba de campo?')"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-trash" viewBox="0 0 16 16">
+                                    <path
+                                        d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z" />
+                                    <path
+                                        d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z" />
+                                </svg></a>
+                        </td>
+                    </tr>
+                </th:block>
+            </table>
+        </div>
+    </section>
+    <script type="text/javascript">
+        function limpiarCampo(){
+          window.location='/crudLaboratorista'
+        }
+    
+      </script>
 </body>
 <footer class="footer footer-login">
     <div class="justify-content-center">
@@ -122,4 +118,5 @@
         </div>
     </div>
 </footer>
+
 </html>
