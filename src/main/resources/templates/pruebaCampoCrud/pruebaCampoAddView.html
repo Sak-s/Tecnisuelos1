@@ -1,171 +1,184 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css}" rel="stylesheet"
-          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-            crossorigin="anonymous"></script>
-    <title>Añadir prueba de campo</title>
-    <link rel="stylesheet" th:href="@{css/stylespruebasCampo.css}">
-  </head>
-  
-  <body class="background">
-    <header class="hv-background background wrapper">
-      <nav class="navbar navbar-expand-lg navbar-light ">
-        <div class="container container-fluid">
-          <a class="navbar-brand" th:href="@{/}"><img src="Imagenes/20230309_161828.png" id="logoTec"
-            alt="Logo" width="200" height="60" class=""></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-            <ul class="navbar-nav  g-col-6">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle btn btn-secondary" th:href="@{#}" role="button" data-bs-toggle="dropdown"
-                  aria-expanded="false">
-                  Ingeniero
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" th:href="@{/index}">Atras</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <div id="wrapper">
-      <h1 class="container title">Pruebas de Campo</h1>
-  
-      <section class="container-login">
-        <div class="img"></div>
-  
-  
-        <form th:action="@{/pruebaCampoAdd}" th:object="${prueba}" method="post">
-          <div class="container">
-  
-            <div class="row">
-  
-              <div class="col">
-                <input type="text" class="form-control" placeholder="Nombre Empleado" required name="nombreEmpleado">
-              </div>
-              <div class="col">
-                <input type="date" id="fecha" min="?php echo date('Y-m-d'); ?" class="form-control" placeholder="Fecha" required name="fecha">
-              </div>
-              <div class="col">
-                <input type="number" class="form-control" placeholder="Numero de Cilindro" required name="numeroCilindro">
-              </div>
-  
-            </div>
-  
-  
-            <div class="row">
-  
-              <div class="col">
-                <input type="number" class="form-control" placeholder="Numero de Prueba " required name="numeroPrueba">
-              </div>
-              <div class="col">
-                <input type="text" class="form-control" placeholder="Cliente" required name="cliente">
-              </div>
-              <div class="col">
-                <input type="text" class="form-control" placeholder="Ubicación" required name="ubicacion">
-              </div>
-  
-            </div>
-            <hr>
-  
-            <div class="row">
-              <div class="col">
-                <input type="text" class="form-control" placeholder="Sondeos" required name="sondeo">
-              </div>
-              <div class="col">
-                <input type="text" class="form-control" placeholder="Revenimiento" required name="revenimiento">
-              </div>
-  
-            </div>
-  
-  
-            <div class="row">
-              <div class="col">
-                <input type="text" class="form-control" placeholder="Ultrasónico" required name="ultrasonico">
-              </div>
-              <div class="col">
-                <input type="number" class="form-control" placeholder="Esclerometría" required name="esclerometria">
-              </div>
-  
-            </div>
-  
-            <div class="row">
-              <div class="col">
-                <input type="text" class="form-control" placeholder="Análisis petrográficos en agregados" required name="analisisPetrograficos">
-              </div>
-              <div class="col">
-                <input type="number" class="form-control" placeholder="Elaboración de cilindros" required name="elaboracion">
-              </div>
-  
-            </div>
-  
-            <div class="row">
-              <div class="col">
-                <input type="text" class="form-control" placeholder="Reactividad potencial (Método químico)" required name="reactividad">
-              </div>
-  
-            </div>
-  
-            <div class="row">
-              <div class="col">
-                <input type="number" class="form-control" placeholder="Compresión" required name="compresion">
-              </div>
-            </div>
-  
-    
-            <div>
-              <input type="submit" class="btn btn-third" value="Crear">
-            </div>
-  
-          </div>
-        </form>
-      </section>
-  
-      <div id="info">
-        <input type="checkbox" id="menu" name="menu" class="menu-checkbox">
-        <div class="menu">
-          <label class="menu-toggle" for="menu"><span>Toggle</span></label>
-          <ul>
-            <li>
-              <a th:href="@{/NuevoInforme}" class="btn btn-secondarys">Nuevo Informe</a>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css}" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <title>Añadir prueba de campo</title>
+  <link rel="stylesheet" th:href="@{css/stylespruebasCampo.css}">
+</head>
+
+<body class="background">
+  <header class="hv-background background wrapper">
+    <nav class="navbar navbar-expand-lg navbar-light ">
+      <div class="container container-fluid">
+        <a class="navbar-brand" th:href="@{/}"><img src="Imagenes/20230309_161828.png" id="logoTec" alt="Logo"
+            width="200" height="60" class=""></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+          <ul class="navbar-nav  g-col-6">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle btn btn-secondary" th:href="@{#}" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Ingeniero
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" th:href="@{/index}">Atras</a></li>
+              </ul>
             </li>
-            <li>
-              <a th:href="@{/HistoInformes}" class="btn btn-secondarys">Historial de Informes</a>
-            </li>
-  
           </ul>
         </div>
       </div>
-    </div>
-    <script>
-      // Obtén el elemento de entrada de fecha
-      const fechaInput = document.getElementById('fecha');
-      // Obtén la fecha actual en el formato YYYY-MM-DD
-      const fechaActual = new Date().toISOString().split('T')[0];
-      // Establece el atributo 'min' en la fecha actual para limitar las fechas pasadas
-      fechaInput.setAttribute('min', fechaActual);
-  </script>
-  </body>
-  
-  
-  
-  <footer class="footer">
-    <div class="justify-content-center">
-      <div class="col-auto footer-login ">
-        <p>© 2023. By Tatiana, Jhonatan, Mateo, Santiago</p>
+    </nav>
+  </header>
+  <div id="wrapper">
+    <h1 class="container title">Pruebas de Campo</h1>
+
+    <section class="container-login">
+      <div class="img"></div>
+
+
+      <form th:action="@{/pruebaCampoAdd}" th:object="${prueba}" method="post">
+        <div class="container">
+
+          <div class="row">
+            <div class="col">
+              <select type="text" class="form-control form-select" aria-label="Default select example" placeholder="Tipo Prueba" required name="tipoPrueba">
+                <option>Seleccionar</option>
+                <option value="Sondeos">Sondeos</option>
+                <option value="Inspecciones">Inspecciones Ultrasonicas</option>
+                <option value="Esclerometría">Esclerometría</option>
+              </select>
+            </div>
+
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Nombre Empleado" required name="nombreEmpleado">
+            </div>
+            <div class="col">
+              <input type="date" id="fecha" min="?php echo date('Y-m-d'); ?" class="form-control" placeholder="Fecha"
+                required name="fecha">
+            </div>
+            <div class="col">
+              <input type="number" class="form-control" placeholder="Numero de Cilindro" required name="numeroCilindro">
+            </div>
+
+          </div>
+
+
+          <div class="row">
+
+            <div class="col">
+              <input type="number" class="form-control" placeholder="Numero de Prueba " required name="numeroPrueba">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Cliente" required name="cliente">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Ubicación" required name="ubicacion">
+            </div>
+
+          </div>
+          <hr>
+
+          <div class="row">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Sondeos" required name="sondeo">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Revenimiento" required name="revenimiento">
+            </div>
+
+          </div>
+
+
+          <div class="row">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Ultrasónico" required name="ultrasonico">
+            </div>
+            <div class="col">
+              <input type=" text" class="form-control" placeholder="Esclerometría" required name="esclerometria">
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Análisis petrográficos en agregados" required
+                name="analisisPetrograficos">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Elaboración de cilindros" required
+                name="elaboracion">
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Reactividad potencial (Método químico)" required
+                name="reactividad">
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Compresión" required name="compresion">
+            </div>
+          </div>
+
+
+          <div>
+            <input type="submit" class="btn btn-third" value="Crear">
+          </div>
+
+        </div>
+      </form>
+    </section>
+
+    <div id="info">
+      <input type="checkbox" id="menu" name="menu" class="menu-checkbox">
+      <div class="menu">
+        <label class="menu-toggle" for="menu"><span>Toggle</span></label>
+        <ul>
+          <li>
+            <a th:href="@{/NuevoInforme}" class="btn btn-secondarys">Nuevo Informe</a>
+          </li>
+          <li>
+            <a th:href="@{/HistoInformes}" class="btn btn-secondarys">Historial de Informes</a>
+          </li>
+
+        </ul>
       </div>
     </div>
-  </footer>
-  
-  </html>
+  </div>
+  <script>
+    // Obtén el elemento de entrada de fecha
+    const fechaInput = document.getElementById('fecha');
+    // Obtén la fecha actual en el formato YYYY-MM-DD
+    const fechaActual = new Date().toISOString().split('T')[0];
+    // Establece el atributo 'min' en la fecha actual para limitar las fechas pasadas
+    fechaInput.setAttribute('min', fechaActual);
+  </script>
+</body>
+
+
+
+<footer class="footer">
+  <div class="justify-content-center">
+    <div class="col-auto footer-login ">
+      <p>© 2023. By Tatiana, Jhonatan, Mateo, Santiago</p>
+    </div>
+  </div>
+</footer>
+
+</html>

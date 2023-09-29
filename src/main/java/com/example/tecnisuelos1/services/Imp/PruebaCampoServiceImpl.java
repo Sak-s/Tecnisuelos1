@@ -6,23 +6,22 @@ package com.example.tecnisuelos1.services.Imp;
 
 import com.example.tecnisuelos1.entity.PruebaCampo;
 import com.example.tecnisuelos1.repository.PruebaCampoRepository;
-import com.example.tecnisuelos1.services.PruebaCampoService;
+import com.example.tecnisuelos1.services.PruebaCampoInterface;
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
- *
- * @author santiago
- */
 @Service
-public class PruebaCampoServiceImpl implements PruebaCampoService {
-
+public class PruebaCampoServiceImpl implements PruebaCampoInterface {
     @Autowired
     private PruebaCampoRepository pruebaCampoRepository;
 
     @Override
-    public List<PruebaCampo> getAllPruebas() {
+    public List<PruebaCampo> getAllPruebas(String pablabraClave) {
+        if (pablabraClave != null) {
+            return pruebaCampoRepository.findAll(pablabraClave);
+        }
         return pruebaCampoRepository.findAll();
     }
 
@@ -40,6 +39,7 @@ public class PruebaCampoServiceImpl implements PruebaCampoService {
     public PruebaCampo updatePrueba(PruebaCampo pruebaCampo) {
         PruebaCampo pruebaCampoUpdate = pruebaCampoRepository.findById(pruebaCampo.getId()).get();
         pruebaCampoUpdate.setNombreEmpleado(pruebaCampo.getNombreEmpleado());
+        pruebaCampoUpdate.setTipoPrueba(pruebaCampo.getTipoPrueba());
         pruebaCampoUpdate.setFecha(pruebaCampo.getFecha());
         pruebaCampoUpdate.setNumeroCilindro(pruebaCampo.getNumeroCilindro());
         pruebaCampoUpdate.setNumeroPrueba(pruebaCampo.getNumeroPrueba());

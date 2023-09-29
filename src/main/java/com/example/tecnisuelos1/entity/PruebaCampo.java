@@ -10,27 +10,25 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 
-/**
- *
- * @author santiago
- */
 @Entity
 @Table(name = "prueba_campo")
-public class PruebaCampo implements Serializable {
-
+public class  PruebaCampo implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(length = 200, nullable = false)
     private String nombreEmpleado;
+    @Column(length = 200, nullable = false)
+    private String tipoPrueba;
     @Column(nullable = false)
-    private LocalDate fecha;
+    private LocalDate fecha; 
     @Column(length = 200)
-    private Integer numeroCilindro;
-    private Integer numeroPrueba;
+    private Integer numeroCilindro; 
+    private Integer numeroPrueba; 
     @Column(length = 200, nullable = false)
     private String cliente;
     @Column(length = 200, nullable = false)
@@ -42,7 +40,7 @@ public class PruebaCampo implements Serializable {
     @Column(length = 200, nullable = false)
     private String ultrasonico;
     @Column(length = 200)
-    private Integer esclerometria;
+    private String esclerometria;
     @Column(length = 200, nullable = false)
     private String analisisPetrograficos;
     @Column(length = 200, nullable = false)
@@ -56,24 +54,27 @@ public class PruebaCampo implements Serializable {
     }
 
     public PruebaCampo(
-            Long id,
-            String nombreEmpleado,
-            LocalDate fecha,
-            Integer numeroCilindro,
-            Integer numeroPrueba,
-            String cliente,
-            String ubicacion,
-            String sondeo,
-            String revenimiento,
-            String ultrasonico,
-            Integer esclerometria,
-            String analisisPetrograficos,
-            String elaboracion,
-            String reactividad,
-            String compresion
+        Long id,
+        String nombreEmpleado,
+        LocalDate fecha,
+        String tipoPrueba,
+        Integer numeroCilindro,
+        Integer numeroPrueba,
+        String cliente,
+        String ubicacion,
+        String sondeo,
+        String revenimiento,
+        String ultrasonico,
+        String esclerometria,
+        String analisisPetrograficos,
+        String elaboracion,
+        String reactividad,
+        String compresion
     ) {
         this.id = id;
         this.fecha = fecha;
+        this.nombreEmpleado = nombreEmpleado;
+        this.tipoPrueba = tipoPrueba;
         this.numeroCilindro = numeroCilindro;
         this.numeroPrueba = numeroPrueba;
         this.cliente = cliente;
@@ -88,12 +89,20 @@ public class PruebaCampo implements Serializable {
         this.compresion = compresion;
     }
 
-    public Long getId() {
+   public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+      public String getTipoPrueba(){
+        return tipoPrueba;
+    }
+
+    public void setTipoPrueba(String tipoPrueba){
+        this.tipoPrueba = tipoPrueba;
     }
 
     public String getNombreEmpleado() {
@@ -168,11 +177,11 @@ public class PruebaCampo implements Serializable {
         this.ultrasonico = ultrasonico;
     }
 
-    public Integer getEsclerometria() {
+    public String getEsclerometria() {
         return esclerometria;
     }
 
-    public void setEsclerometria(Integer esclerometria) {
+    public void setEsclerometria(String esclerometria) {
         this.esclerometria = esclerometria;
     }
 

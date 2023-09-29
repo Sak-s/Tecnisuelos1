@@ -49,8 +49,19 @@
       <form th:action="@{/pruebaCampoUpdate}" th:object="${prueba}" method="post">
         <section class="container">
           <div class="row">
-            <div class="col-6">
-              <label for="exampleInputEmail1" class="form-label">Nombre Empleado</label>
+            <div class="col-3">
+              <label for="exampleInputEmail1" class="form-label">Tipo de Prueba</label>
+              <select type="text" class="form-control form-select" aria-label="Default select example"
+                placeholder="Tipo Prueba" required name="tipoPrueba" th:value="${prueba.tipoPrueba}">
+                <option value="Sondeos" th:selected="${prueba.tipoPrueba == 'Sondeos'}">Sondeos</option>
+                <option value="Inspecciones" th:selected="${prueba.tipoPrueba == 'Inspecciones Ultrasonicas'}">
+                  Inspecciones Ultrasonicas</option>
+                <option value="Esclerometría" th:selected="${prueba.tipoPrueba == 'Esclerometría'}">Esclerometría
+                </option>
+              </select>
+            </div>
+            <div class="col-3">
+              <label for="exampleInputEmail1" class="form-label">Nombre Ingeniero</label>
               <input type="hidden" th:value="${prueba.Id}" name="Id">
               <input type="text" class="form-control" th:value="${prueba.nombreEmpleado}" placeholder="Nombre" required
                 name="nombreEmpleado" />
