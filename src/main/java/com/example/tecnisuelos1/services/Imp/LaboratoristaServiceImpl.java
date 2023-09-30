@@ -54,6 +54,7 @@ public class LaboratoristaServiceImpl implements LaboratoristaService {
     public Laboratorista ActualizarInforme(Laboratorista labo) {
         Laboratorista editarInforme = labotory.findById(labo.getLaboratoristaId()).get();
         editarInforme.setNombreEmpleado(labo.getNombreEmpleado());
+        editarInforme.setTipoPrueba(labo.getTipoPrueba());
         editarInforme.setFecha(labo.getFecha());
         editarInforme.setNumerocilindro(labo.getNumerocilindro());
         editarInforme.setNumeroPrueba(labo.getNumeroPrueba());

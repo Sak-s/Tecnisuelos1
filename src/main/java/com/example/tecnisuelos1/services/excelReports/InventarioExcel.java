@@ -35,19 +35,11 @@ public class InventarioExcel {
         style.setFont(font);
 
         createCell(row, 0, "Id", style);
-        createCell(row, 1, "Nombre Empleado", style);
-        createCell(row, 2, "Fecha", style);
-        createCell(row, 3, "Numero Cilindro", style);
-        createCell(row, 4, "Numero Prueba", style);
-        createCell(row, 5, "Cliente", style);
-        createCell(row, 6, "Granulometria", style);
-        createCell(row, 7, "Contenido de Aire", style);
-        createCell(row, 8, "Flexion del Concreto", style);
-        createCell(row, 9, "Compresion", style);
-        createCell(row, 10, "Estudia Petrografico", style);
-        createCell(row, 11, "Elasticidad del Extensometro", style);
-        createCell(row, 12, "Contraccion de Secado", style);
-        createCell(row, 13, "Pruebas de Permeabilidad", style);
+        createCell(row, 1, "Cantidad", style);
+        createCell(row, 2, "Nombre", style);
+        createCell(row, 3, "Descripcion", style);
+        createCell(row, 4, "Categoria", style);
+        createCell(row, 5, "Imagen", style);
     }
 
     private void createCell(Row row, int columnCount, Object value, CellStyle style) {

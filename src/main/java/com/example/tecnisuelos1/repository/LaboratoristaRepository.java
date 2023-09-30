@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface LaboratoristaRepository extends JpaRepository<Laboratorista, Long> {
     @Query
-    ("SELECT l FROM Laboratorista l WHERE CONCAT(l.nombreEmpleado, ' ', l.fecha, ' ', l.numerocilindro, ' ', l.numeroPrueba, ' ', l.cliente, ' ', l.granulometria) LIKE %?1%")
+    ("SELECT l FROM Laboratorista l WHERE CONCAT(l.nombreEmpleado, ' ', l.fecha, ' ', l.numerocilindro, ' ', l.numeroPrueba, ' ', l.cliente, ' ', l.granulometria, ' ', l.tipoPrueba) LIKE %?1%")
     public List<Laboratorista> findAll(String palabraClave);
 
     

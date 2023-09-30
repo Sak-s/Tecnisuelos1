@@ -13,13 +13,9 @@ import java.util.List;
  */
 public interface InventarioService {
 
-    public List<Inventario> getInventario();
-
+    public List<Inventario> getInventario(String palabraClave);
     public Inventario crearInven(Inventario invent);
-
     public void borrarInven(Long idInvent);
-
     public Inventario buscarByIde(Long idInvent);
-
     public Inventario ActualizarInven(Inventario invent);
 }

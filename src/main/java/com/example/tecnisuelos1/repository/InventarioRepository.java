@@ -5,7 +5,9 @@
 package com.example.tecnisuelos1.repository;
 
 import com.example.tecnisuelos1.entity.Inventario;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -14,5 +16,8 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface InventarioRepository  extends JpaRepository<Inventario, Long>{
+    @Query
+    ("SELECT i FROM Inventario i WHERE CONCAT(i.nombreInven, ' ', i.descripcionInven, ' ', i.categoriaInven, ' ', i.cantidadInven) LIKE %?1%")
+    public List<Inventario> findAll(String palabraClave);
     
 }

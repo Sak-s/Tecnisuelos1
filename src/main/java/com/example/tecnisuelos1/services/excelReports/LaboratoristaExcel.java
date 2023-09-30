@@ -36,6 +36,7 @@ public class LaboratoristaExcel {
 
         createCell(row, 0, "Id", style);
         createCell(row, 1, "Nombre Empleado", style);
+        createCell(row, 1, "Tipo Prueba", style);
         createCell(row, 2, "Fecha", style);
         createCell(row, 3, "Numero Cilindro", style);
         createCell(row, 4, "Numero Prueba", style);
@@ -73,6 +74,7 @@ public class LaboratoristaExcel {
             Row row = sheet.createRow(rowCount++);
             int columnCount = 0;
             createCell(row, columnCount++, laboratorista.getLaboratoristaId(), style);
+            createCell(row, columnCount++, laboratorista.getTipoPrueba(), style);
             createCell(row, columnCount++, laboratorista.getNombreEmpleado(), style);
             createCell(row, columnCount++, laboratorista.getFecha().toString(), style);
             createCell(row, columnCount++, laboratorista.getNumerocilindro(), style);

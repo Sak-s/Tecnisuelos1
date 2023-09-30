@@ -50,13 +50,20 @@
                 <div class="container">
 
                     <div class="row">
-
+                        <div class="col">
+                            <select type="text" class="form-control form-select" aria-label="Default select example" placeholder="Tipo Prueba" required name="tipoPrueba">
+                              <option>Seleccionar</option>
+                              <option value="Sondeos">Sondeos</option>
+                              <option value="Inspecciones">Inspecciones Ultrasonicas</option>
+                              <option value="Esclerometría">Esclerometría</option>
+                            </select>
+                          </div>
                         <div class="col">
                             <input type="text" class="form-control" placeholder="Nombre Empleado" required
                                 name="nombreEmpleado">
                         </div>
                         <div class="col">
-                            <input type="date" class="form-control" placeholder="Fecha" required name="fecha">
+                            <input  type="date" id="fecha" min="?php echo date('Y-m-d'); ?" class="form-control" placeholder="Fecha" required name="fecha">
                         </div>
                         <div class="col">
                             <input type="number" class="form-control" placeholder="Numero de Cilindro" required
@@ -156,6 +163,14 @@
             </div>
         </div>
     </div>
+    <script>
+        // Obtén el elemento de entrada de fecha
+        const fechaInput = document.getElementById('fecha');
+        // Obtén la fecha actual en el formato YYYY-MM-DD
+        const fechaActual = new Date().toISOString().split('T')[0];
+        // Establece el atributo 'min' en la fecha actual para limitar las fechas pasadas
+        fechaInput.setAttribute('min', fechaActual);
+      </script>
 
 </body>
 

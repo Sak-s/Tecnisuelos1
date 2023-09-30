@@ -27,6 +27,9 @@ public class Laboratorista implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long laboratoristaId;
 
+    @Column(nullable = false)
+    private String tipoPrueba;
+
     @Column(length = 200, nullable = false)
     private String nombreEmpleado;
 
@@ -72,6 +75,7 @@ public class Laboratorista implements Serializable {
 
     public Laboratorista(
             Long laboratoristaId,
+            String tipoPrueba,
             String nombreEmpleado,
             String fecha,
             String numerocilindro,
@@ -88,6 +92,7 @@ public class Laboratorista implements Serializable {
 
         this.laboratoristaId = laboratoristaId;
         this.nombreEmpleado = nombreEmpleado;
+        this.tipoPrueba = tipoPrueba;
         this.fecha = fecha;
         this.numerocilindro = numerocilindro;
         this.numeroPrueba = numeroPrueba;
@@ -109,6 +114,14 @@ public class Laboratorista implements Serializable {
 
     public void setLaboratoristaId(long laboratoristaId) {
         this.laboratoristaId = laboratoristaId;
+    }
+
+    public String getTipoPrueba() {
+        return tipoPrueba;
+    }
+
+    public void setTipoPrueba(String tipoPrueba) {
+        this.tipoPrueba = tipoPrueba;
     }
 
     public String getNombreEmpleado() {

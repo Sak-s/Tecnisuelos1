@@ -22,9 +22,11 @@ public class InventarioServicelmpl implements InventarioService {
     private InventarioRepository inven;
 
     @Override
-    public List<Inventario> getInventario() {
-        List<Inventario> lista = inven.findAll();
-        return lista;
+    public List<Inventario> getInventario(String palabraClave) {
+        if (palabraClave != null) {
+            return inven.findAll(palabraClave);
+        }
+        return inven.findAll();
     }
 
     @Override

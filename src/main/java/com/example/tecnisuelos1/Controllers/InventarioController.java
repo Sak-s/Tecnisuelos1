@@ -20,6 +20,7 @@ import java.util.List;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -38,11 +39,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class InventarioController {
      @Autowired
         private InventarioService inventarioInterface;
+        private String palabraClave;
 
      @GetMapping("/crudInventario")
-    public String vistaCrudInventario(Model model) {
-        List<Inventario> listaInventario = inventarioInterface.getInventario();
+    public String vistaCrudInventario(@Param("palabraClave") String palabraClave, Model model) {
+        this.palabraClave = palabraClave;
+        List<Inventario> listaInventario = inventarioInterface.getInventario(palabraClave);
         model.addAttribute("listai", listaInventario);
+        model.addAttribute("palabraClave", palabraClave);
         return "crudI/crudInventario";
     }
 
@@ -92,7 +96,7 @@ public class InventarioController {
             String headerKey = "Content-Disposition";
             String headerValue = "attachment; filename=InformeInventario_"+ currentDateTime +".xlsx";
             response.setHeader(headerKey, headerValue);
-            List<Inventario> inventarioInfoList = inventarioInterface.getInventario();
+            List<Inventario> inventarioInfoList = inventarioInterface.getInventario(palabraClave);
             InventarioExcel excelExporter = new InventarioExcel(inventarioInfoList);
             excelExporter.export(response);
      }
