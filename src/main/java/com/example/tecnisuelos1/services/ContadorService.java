@@ -12,15 +12,9 @@ import java.util.List;
  * @author santiago
  */
 public interface ContadorService {
-
-    public List<Contador> getCliente();
-
+    public List<Contador> getCliente(String palabraClave);
     public Contador crearCliente(Contador conta);
-
     public void borrarCliente(Long idContador);
-
     public Contador buscarById(Long idContador);
-
     public Contador ActualizarCliente(Contador conta);
-
 }

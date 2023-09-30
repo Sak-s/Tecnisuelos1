@@ -119,8 +119,8 @@ font-family: serif;
 
 .container-login .container {
   position:relative;
-  width: 1000px;
-  height: 400px;
+  width: 1750px;
+  height: 600px;
   z-index:2;
   border-radius: 20px;
   background-color: #bdd6ff93;
@@ -138,10 +138,6 @@ font-family: serif;
   
 }
 
-.container .colum-pdfCliente{
-  margin-right: 100%;
-
-}
 .container .colum-info{
   width: 100%;
   height: 10%;
@@ -179,7 +175,7 @@ font-family: serif;
   border-left: solid black;
   background-color: #668dc0;
 }
-.colum-info .number{
+.colum-info .number-p{
   height: 100%;
   width: 15%;
   display: flex;
@@ -188,7 +184,7 @@ font-family: serif;
   border-left: solid black;
   background-color: #668dc0;
 }
-.colum-info .direccion{
+.colum-info .cliente{
   height: 100%;
   width: 15%;
   display: flex;
@@ -197,7 +193,7 @@ font-family: serif;
   border-left: solid black;
   background-color: #668dc0;
 }
-.colum-info .name{
+.colum-info .name-e{
   height: 100%;
   width: 10%;
   display: flex;
@@ -206,25 +202,7 @@ font-family: serif;
   border-left: solid black;
   background-color: #668dc0;
 }
-.colum-info .last-name{
-  height: 100%;
-  width: 10%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-left: solid black;
-  background-color: #668dc0;
-}
-.colum-info .email{
-  height: 100%;
-  width: 15%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-left: solid black;
-  background-color: #668dc0;
-}
-.colum-info .editar{
+.colum-info .number-c{
   height: 100%;
   width: 10%;
   display: flex;
@@ -234,7 +212,44 @@ font-family: serif;
   background-color: #668dc0;
 }
 
+.colum-info .ultrasonico{
+  height: 100%;
+  width: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: solid black;
+  background-color: #668dc0;
+}
+.colum-info .sondeo{
+  height: 100%;
+  width: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: solid black;
+  background-color: #668dc0;
+}
+.colum-info .revenimiento{
+  height: 100%;
+  width: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: solid black;
+  background-color: #668dc0;
+}
 .colum-info .eliminar{
+  height: 100%;
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: solid black;
+  background-color: #668dc0;
+}
+
+.colum-info .visualizar{
   height: 100%;
   width: 10%;
   display: flex;
@@ -268,7 +283,7 @@ font-family: serif;
   border-left: solid black;
   background-color: white;
 }
-.colum-info-2 .number-2{
+.colum-info-2 .number-p-2{
   height: 100%;
   width: 15%;
   display: flex;
@@ -277,7 +292,7 @@ font-family: serif;
   border-left: solid black;
   background-color:white;
 }
-.colum-info-2 .direccion-2{
+.colum-info-2 .cliente-2{
   height: 100%;
   width: 15%;
   display: flex;
@@ -286,7 +301,7 @@ font-family: serif;
   border-left: solid black;
   background-color: white;
 }
-.colum-info-2 .name-2{
+.colum-info-2 .name-e-2{
   height: 100%;
   width: 10%;
   display: flex;
@@ -295,7 +310,7 @@ font-family: serif;
   border-left: solid black;
   background-color: white;
 }
-.colum-info-2 .last-name-2{
+.colum-info-2 .number-c-2{
   height: 100%;
   width: 10%;
   display: flex;
@@ -304,7 +319,7 @@ font-family: serif;
   border-left: solid black;
   background-color: white;
 }
-.colum-info-2 .email-2{
+.colum-info-2 .sondeo-2{
   height: 100%;
   width: 15%;
   display: flex;

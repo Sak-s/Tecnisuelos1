@@ -22,9 +22,11 @@ public class ContadorServiceImpl implements ContadorService {
     private ContadorRepository clie;
 
     @Override
-    public List<Contador> getCliente() {
-        List<Contador> lista = clie.findAll();
-        return lista;
+    public List<Contador> getCliente(String palabraClave){
+        if (palabraClave != null){
+            return clie.findAll(palabraClave);
+        }
+        return clie.findAll();
     }
 
     @Override

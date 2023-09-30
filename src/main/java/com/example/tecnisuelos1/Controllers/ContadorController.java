@@ -17,6 +17,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -26,10 +27,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-/**
- *
- * @author santiago
- */
+
+
 @Controller
 @RequestMapping
 
@@ -37,12 +36,15 @@ public class ContadorController {
     
     @Autowired
         private ContadorService contadorInterface;
+        private String plabraClave;
 
 
     @GetMapping("/crudContador")
-    public String vistaCrudContador(Model model) {
-        List<Contador> listaCliente = contadorInterface.getCliente();
+    public String vistaCrudContador(@Param("palabraClave") String palabraClave, Model model) {
+        this.plabraClave = palabraClave;
+        List<Contador> listaCliente = contadorInterface.getCliente(palabraClave);
         model.addAttribute("monalisa", listaCliente);
+        model.addAttribute("palabraClave", palabraClave);
         return "crudC/crudContador";
     }
 
@@ -55,7 +57,7 @@ public class ContadorController {
     @PostMapping("/guardarCliente")
     public String GuardarCliente(@ModelAttribute Contador contador, BindingResult resultado) {
         contadorInterface.crearCliente(contador);
-        return "redirect:/agregarCliente";
+        return "redirect:/crudContador";
     }
 
 
@@ -92,7 +94,7 @@ public class ContadorController {
             String headerKey = "Content-Disposition";
             String headerValue = "attachment; filename=CarteraCliente_"+ currentDateTime +".xlsx";
             response.setHeader(headerKey, headerValue);
-            List<Contador> contadorList = contadorInterface.getCliente();
+            List<Contador> contadorList = contadorInterface.getCliente(plabraClave);
             ContadorExcel excelExporter = new ContadorExcel(contadorList);
             excelExporter.export(response);
      }
