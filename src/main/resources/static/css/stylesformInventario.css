@@ -157,6 +157,12 @@
     display: flex;
 
 }
+select.form-control.form-select{
+  margin-right: 50px;
+  margin-top: 10px;
+  display: flex;
+
+}
   .container-login  {
     position:relative;
     padding-top: 0px;

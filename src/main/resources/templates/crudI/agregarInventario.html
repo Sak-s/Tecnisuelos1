@@ -49,8 +49,12 @@
                 
                     <div class="img"></div>
                         <div class="container">
-                        <h1 class="container title">Inventario</h1>
+                       
+                            <h1 class="container title">Inventario</h1>
                     <div class="row">
+
+                      
+
                         <div class="col">
                             <input type="text" class="form-control" placeholder="Nombre" required name="nombreInven">
                         </div>
@@ -63,8 +67,13 @@
                     <div class="row">
 
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Categoria" required name="categoriaInven">
-                        </div>
+                            <select type="text" class="form-control form-select" aria-label="Default select example" placeholder="Categoria" required name="categoriaInven">
+                              <option>Seleccionar Categoria</option>
+                              <option value="Material">Material</option>
+                              <option value="Articulo">Articulo</option>
+                              <option value="Otro">Otro</option>
+                            </select>
+                          </div>
                         <div class="col">
                             <input type="text" class="form-control" placeholder="Imagen" required name="imagenInven">
                         </div>

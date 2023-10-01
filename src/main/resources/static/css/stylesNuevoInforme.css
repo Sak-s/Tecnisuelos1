@@ -153,10 +153,18 @@ s p {
 
 input.form-control{
   margin-right: 50px;
-  margin-top: 10px;
+  margin-top: 6px;
   display: flex;
 
 }
+select.form-control.form-select{
+  margin-right: 50px;
+  margin-top: 5px;
+  display: flex;
+
+}
+
+
 .container-login  {
   position:relative;
   padding-top: 0px;
