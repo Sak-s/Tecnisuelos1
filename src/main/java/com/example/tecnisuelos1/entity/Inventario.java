@@ -38,10 +38,10 @@ public class Inventario implements Serializable {
     private String categoriaInven;
 
     @Column(length = 200, nullable = false)
-    private String imagenInven;
+    private byte[] imagenInven;
 
     public Inventario(long inventarioId, String cantidadInven, String nombreInven, String descripcionInven,
-            String categoriaInven, String imagenInven) {
+            String categoriaInven, byte[] imagenInven) {
         this.inventarioId = inventarioId;
         this.cantidadInven = cantidadInven;
         this.nombreInven = nombreInven;
@@ -98,11 +98,11 @@ public class Inventario implements Serializable {
         this.categoriaInven = categoriaInven;
     }
 
-    public String getImagenInven() {
+    public byte[] getImagenInven() {
         return imagenInven;
     }
 
-    public void setImagenInven(String imagenInven) {
+    public void setImagenInven(byte[] imagenInven) {
         this.imagenInven = imagenInven;
     }
 
