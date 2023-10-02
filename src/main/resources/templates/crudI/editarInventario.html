@@ -67,11 +67,17 @@
                     <div class="row">
 
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Categoria" required name="categoria_inven"
-                                />
+
+                            <select type="text" class="form-control form-select" aria-label="Default select example" placeholder="Categoria" required name="categoriaInven">
+                                <option>Seleccionar Categoria</option>
+                                <option value="Material">Material</option>
+                                <option value="Articulo">Articulo</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Imagen" required name="imagen_inven" />
+                            <input type="file" class="form-control" placeholder="Imagen" required name="imagenInven" accept="image/*">
                         </div>
 
                     </div>
